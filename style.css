@@ -1,0 +1,156 @@
+/* =================================================
+   Apple-inspired minimal UI (FINAL)
+   Stable table layout – no moulding
+   ================================================= */
+
+/* ---------- Color system ---------- */
+:root {
+  --bg: #f5f5f7;
+  --card: #ffffff;
+  --border: #e5e5ea;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --accent: #0071e3;
+  --accent-hover: #005bb5;
+}
+
+/* ---------- Global ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 32px;
+  font-family: -apple-system, BlinkMacSystemFont,
+               "SF Pro Text", "SF Pro Display",
+               "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ---------- Header ---------- */
+h2 {
+  margin: 0 0 18px 0;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Search ---------- */
+#q {
+  width: 420px;
+  max-width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  outline: none;
+  margin-bottom: 20px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#q::placeholder {
+  color: var(--muted);
+}
+
+#q:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
+}
+
+/* ---------- Table wrapper (CRITICAL FIX) ---------- */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ---------- Table ---------- */
+table {
+  width: 100%;
+  min-width: 1150px;          /* PREVENTS MOULDING */
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: var(--card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* ---------- Header row ---------- */
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: rgba(255,255,255,0.96);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---------- Cells ---------- */
+td {
+  padding: 14px 12px;
+  font-size: 15px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Hover ---------- */
+tbody tr {
+  transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+  background: #f9f9fb;
+}
+
+/* ---------- Column widths (LOCKED) ---------- */
+th:nth-child(1), td:nth-child(1) { width: 240px; }  /* Company */
+th:nth-child(2), td:nth-child(2) { width: 360px; }  /* Role */
+th:nth-child(3), td:nth-child(3) { width: 130px; }  /* CTC */
+th:nth-child(4), td:nth-child(4) { width: 160px; }  /* CV Open */
+th:nth-child(5), td:nth-child(5) { width: 160px; }  /* CV Deadline */
+th:nth-child(6), td:nth-child(6) {
+  width: 80px;
+  text-align: center;
+}
+
+/* ---------- Links ---------- */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ---------- Emphasis ---------- */
+td:nth-child(3) {
+  font-weight: 600;
+}
+
+/* ---------- Mobile safety ---------- */
+@media (max-width: 1200px) {
+  body {
+    padding: 18px;
+  }
+
+  table {
+    min-width: 1000px;
+  }
+}
