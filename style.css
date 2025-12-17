@@ -144,6 +144,16 @@ td:nth-child(3) {
   font-weight: 600;
 }
 
+/* ---------- Sortable column (CTC) ---------- */
+th[onclick] {
+  cursor: pointer;
+  user-select: none;
+}
+
+th[onclick]:hover {
+  color: var(--accent);
+}
+
 /* ---------- Mobile safety ---------- */
 @media (max-width: 1200px) {
   body {
