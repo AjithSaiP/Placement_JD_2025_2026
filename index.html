@@ -5,18 +5,41 @@
 <title>Job Descriptions</title>
 <link rel="stylesheet" href="style.css">
 <script>
-function search() {
-  let q = document.getElementById("q").value.toLowerCase();
-  document.querySelectorAll("tbody tr").forEach(r => {
-    r.style.display = r.innerText.toLowerCase().includes(q) ? "" : "none";
+let rows = [];
+let cached = [];
+
+/* cache once */
+window.addEventListener("DOMContentLoaded", () => {
+  rows = Array.from(document.querySelectorAll("tbody tr"));
+  cached = rows.map(r => r.textContent.toLowerCase());
+});
+
+/* debounce helper */
+function debounce(fn, delay) {
+  let t;
+  return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn(...args), delay);
+  };
+}
+
+/* fast search */
+function _search(q) {
+  q = q.toLowerCase();
+  rows.forEach((r, i) => {
+    r.style.display = cached[i].includes(q) ? "" : "none";
   });
 }
+
+/* public debounced search */
+const search = debounce(_search, 120);
 </script>
 </head>
 
 <body>
 <h2>Job Descriptions</h2>
-<input id="q" onkeyup="search()" placeholder="Search company / role / CTC / dates">
+<script src="my.js"></script>
+<input id="q" oninput="search(this.value)" placeholder="Search company / role / CTC / dates">
 
 <table>
 <thead>
