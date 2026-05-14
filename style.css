@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+
+  margin: 0;
+
+  padding: 24px;
+
+  background: #f5f5f7;
+
+  color: #1d1d1f;
+}
+
+h2 {
+
+  margin-top: 0;
+
+  font-size: 2rem;
+}
+
+input {
+
+  width: 100%;
+
+  max-width: 500px;
+
+  padding: 14px 18px;
+
+  border-radius: 14px;
+
+  border: none;
+
+  outline: none;
+
+  margin-bottom: 24px;
+
+  font-size: 1rem;
+
+  box-shadow:
+    0 4px 20px rgba(0,
+      0,
+      0,
+      0.06);
+}
+
+.table-wrap {
+
+  overflow-x: auto;
+
+  border-radius: 24px;
+
+  background: white;
+
+  box-shadow:
+    0 10px 40px rgba(0,
+      0,
+      0,
+      0.08);
+}
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+th {
+
+  background: #fafafa;
+
+  text-align: left;
+
+  padding: 18px;
+
+  font-weight: 600;
+
+  border-bottom:
+    1px solid #eee;
+}
+
+td {
+
+  padding: 18px;
+
+  border-bottom:
+    1px solid #f2f2f2;
+
+  vertical-align: middle;
+}
+
+tr:hover {
+
+  background: #fafcff;
+}
+
+.role-cell {
+
+  max-width: 300px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.company-cell {
+
+  max-width: 220px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.date-cell {
+
+  min-width: 140px;
+}
+
+.date-top {
+
+  font-weight: 600;
+
+  margin-bottom: 4px;
+}
+
+.date-bottom {
+
+  color: #8e8e93;
+
+  font-size: 0.85rem;
+}
+
+.open-btn {
+
+  display: inline-block;
+
+  padding:
+    10px 16px;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(to right,
+      #0071e3,
+      #42a1ff);
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.open-btn:hover {
+
+  opacity: 0.9;
+}
